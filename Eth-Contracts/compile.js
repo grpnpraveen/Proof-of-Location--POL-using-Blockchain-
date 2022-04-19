@@ -25,7 +25,7 @@ let jsonContractSource = JSON.stringify({
 
 // console.log(solc.compile(jsonContractSource));
 const Task = JSON.parse(solc.compile(jsonContractSource)).contracts["Pol.sol"];
-// console.log(Task["POL"]["abi"]);
+// console.log(JSON.stringify(Task["POL"]["abi"]));
 // const contractData=Task["POL"];
 // abi = contractData["abi"]
 // const bytecode=contractData.evm["bytecode"].object
