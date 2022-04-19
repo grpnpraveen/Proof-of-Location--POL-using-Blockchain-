@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.9;
+pragma solidity ^0.8.9;
 
 contract POL{
 
@@ -9,6 +9,7 @@ contract POL{
         uint timeStamp;
     }
 
+    // ! storing only the latest location of the user according to the wallet
     mapping (address => LocationAndTime) userLocationData;
    
     function addUserLocation(string memory Lat, string memory Lng) public 
