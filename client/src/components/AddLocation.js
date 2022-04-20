@@ -10,17 +10,31 @@ class AddLocation extends React.Component {
         };
     }
 
-    async componentDidMount() {
+    async componentWillMount() {
+        // fetching the url
+        const strArr = this.props.location.pathname.split("/");
+        const lat = strArr[2],
+            lng = strArr[3];
+        console.log(`lat : ${lat}`);
+        console.log(`lng : ${lng}`);
+
         // fetch the users account
         const fetchedAccounts = await web3.eth.getAccounts();
         // get the user location
-        await Pol.methods.addUserLocation("20", "77").send({
-            from: fetchedAccounts[0],
-            gas: "1000000",
-        });
-        this.setState({
-            status: "Done",
-        });
+        try {
+            await Pol.methods.addUserLocation(lat, lng).send({
+                from: fetchedAccounts[0],
+                gas: "1000000",
+            });
+            this.setState({
+                status: "Done",
+            });
+        } catch (err) {
+            console.error(err);
+            this.setState({
+                status: "Transaction Rejected ",
+            });
+        }
     }
     render() {
         return (

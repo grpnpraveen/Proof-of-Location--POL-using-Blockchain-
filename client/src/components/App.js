@@ -17,7 +17,8 @@ class App extends React.Component {
                             component={GetLocation}
                         />
                         <Route
-                            path="/addLocation"
+                            // path="/addLocation/:lat/:lng"
+                            path="/addLocation/:lat/:lng"
                             exact
                             component={AddLocation}
                         />
