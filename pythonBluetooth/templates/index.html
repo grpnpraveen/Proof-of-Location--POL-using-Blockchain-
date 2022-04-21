@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <title>POL</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <style>
+        body{
+            overflow: hidden;
+            background-color:aliceblue;
+        }
+        #blck{
+            margin-top: 40px;
+        }
+        #cnt{
+            margin-top: 1%;
+            margin-left: 47%;
+      
+        }
+        #addrs{
+            font-size: 11px;
+        }
+       
+    </style>
+</head>
+<body>
+
+    <div class="ui link cards centered" id="blck">
+        
+        <div class="card">
+          <div class="image">
+            <img src="/static/avatar.png">
+          </div>
+          <div class="content">
+            <div class="header" id="addrs"></div>
+            <div class="meta">
+              <a ></a>
+            </div>
+            <div class="description">
+                <div class="ui two buttons">
+                    <div class="ui basic green button" onclick="sendLoc()">Prove My Location</div>
+                    
+                  </div>
+            </div>
+          </div>
+          <div class="extra content">
+            <span class="right floated">
+              Joined in 2022
+            </span>
+            <i class="money icon"></i>
+            <span id="blnc">
+              
+                Balance in
+            </span>
+            <span>ETH</span>
+          </div>
+        </div>
+      </div>
+
+
+    <input class="ui button orange " id="cnt" type="button" value="connect" onclick="connect()">
+    
+</body>
+<script>
+    
+    var web3;
+    setInterval(chk,500);
+    function chk()
+    {
+        if(!web3.currentProvider.selectedAddress)
+        {
+            document.getElementById('cnt').value="connect";
+            document.getElementById('addrs').innerHTML= "Wallet Address";
+          
+            document.getElementById('blnc').innerHTML="Balance";
+        }
+    }
+    async function connect()
+    {
+        await window.web3.currentProvider.enable();
+        web3=new Web3(window.web3.currentProvider);
+        document.getElementById('addrs').innerHTML=web3.currentProvider.selectedAddress;
+       
+        web3.eth.getBalance(web3.currentProvider.selectedAddress,function(err, result) {
+            if (err) {
+              console.log(err)
+            } else {
+                document.getElementById('blnc').innerHTML=web3.utils.fromWei(result, "ether");
+            }
+          });
+        document.getElementById('cnt').value="connected"; 
+       
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+          }
+        
+    }
+    var lat;
+    var lon;
+    function showPosition(position) {
+       lat=position.coords.latitude;
+       lon= position.coords.longitude;
+      }
+
+    async function sendLoc()
+    {
+         
+        console.log(lat);
+        console.log(lon);
+       
+        
+        await fetch("/verify", {
+     
+            
+            method: "POST",
+             
+            
+            body: JSON.stringify({
+                addrss: web3.currentProvider.selectedAddress,
+                lat: lat,
+                lon: lon
+            }),
+    
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        })
+        .then(response => response.json()).then(json => console.log(json));
+    }
+
+
+   
+</script>
+</html>
