@@ -32,17 +32,41 @@ class AddLocation extends React.Component {
         } catch (err) {
             console.error(err);
             this.setState({
-                status: "Transaction Rejected ",
+                status: "Transaction Rejected",
             });
         }
     }
     render() {
-        return (
-            <div>
-                <h1>Add User Location</h1>
-                <p>{this.state.status}</p>
+        if(this.state.status === 'Loading')
+        {
+            return (
+                <div class="ui">
+                <div class="ui active dimmer">
+                  <div class="ui text loader">please wait confirming through metamask</div>
+                </div>
+                <p></p>
+              </div>);
+        }
+        if(this.state.status === 'Transaction Rejected')
+        {
+            return (<div class="ui negative message">
+        
+            <div class="header">
+              You have rejected your transaction
             </div>
+            <p>refresh the page
+          </p></div>);
+        }
+        else{
+        return (
+            <div class="ui success message">
+            <div class="header">
+              Adding Location was successful.
+            </div>
+            <p>You may now get your location using the route getLocation</p>
+          </div>
         );
+        }
     }
 }
 

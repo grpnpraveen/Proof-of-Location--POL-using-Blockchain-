@@ -24,13 +24,47 @@ class GetLocation extends React.Component {
         // update user lon and lng in state
     }
     render() {
-        return (
-            <div>
-                <h1>GetUserLocation</h1>
-                <p>latitude : {this.state.lat}</p>
-                <p>longitude : {this.state.lng}</p>
+        if(this.state.lat)
+        {
+            return (
+                
+                <div class="ui " style={{'margin-top':'18%','margin-left':'40%'}}>
+                    <div class="ui cards">
+  <div class="card">
+    <div class="content">
+      <div class="header">
+       User's Location
+      </div>
+      <div class="meta">
+     
+      </div>
+      <div class="description">
+       
+      </div>
+    </div>
+    <div class="extra content">
+      <div class="ui two buttons">
+        <div class="ui basic green button">Latitude: {this.state.lat}</div>
+        <div class="ui basic orange button">Longitude: {this.state.lng}</div>
+      </div>
+    </div>
+  </div>
+ 
+</div>
+
+                </div>
+            );
+        }
+        else{
+            return (
+            <div class="ui">
+            <div class="ui active dimmer">
+              <div class="ui text loader">fetching data</div>
             </div>
-        );
+            <p></p>
+          </div>);
+        }
+      
     }
 }
 
