@@ -34,23 +34,23 @@ class Landing extends React.Component {
                 <div className="col two bg margin extrapad">
                   <h1 className="icon side">[]</h1>
                   <span className="feature side">Delivery Based</span><span className="side"> -like amazon,zomato</span>
-                  <p className="side">Wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow</p>
+                  <p className="side">To deliver some item like food or any product to the right place and also to avoid any tampering of the lolcation or any false proxy of location.</p>
                 </div>
                 <div className="col two bg margin extrapad">
                   <h1 className="icon side">[]</h1>
                   <span className="feature side">Transaction Based</span><span className="side"> - like gpay,paytm</span>
-                  <p className="side">Wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow</p>
+                  <p className="side">If any transaction is happened to find the location of the user's when did this transaction without any proxy location.</p>
                 </div>
                 <div className="group margin"></div>
                 <div className="col two bg margin extrapad">
                   <h1 className="icon side">[]</h1>
-                  <span className="feature side">IOT Based</span><span className="side"> - home automation</span>
-                  <p className="side">Wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow</p>
+                  <span className="feature side">IOT Based</span><span className="side"> - location tracking, home automation</span>
+                  <p className="side">In the field of IOT while tracking a location, to get a guaranteed location this app helps.</p>
                 </div>
                 <div className="col two bg margin extrapad">
                   <h1 className="icon side">[]</h1>
                   <span className="feature side">Games Based</span><span className="side"> - pokemongo</span>
-                  <p className="side">Wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow wow</p>
+                  <p className="side">Even in games like pokemon go it helps a lot.</p>
                 </div>
                 <div className="group"></div>
               </div>
