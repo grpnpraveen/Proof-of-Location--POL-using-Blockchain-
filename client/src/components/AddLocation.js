@@ -37,6 +37,16 @@ class AddLocation extends React.Component {
         }
     }
 
+    componentDidUpdate()
+    {
+        if(this.state.status === 'Done' && this.state.status !== 'Loading')
+        {
+          window.location="http://127.0.0.1:5500/Book%20Cabs%20Nearby%20at%20Best%20Price%20_%20Hire%20Taxi%20Nearby%20Online.html";
+          console.log("HERE");
+          window.reload=true;
+        }
+    }
+
     render() {
         if(this.state.status === 'Loading')
         {
@@ -60,6 +70,7 @@ class AddLocation extends React.Component {
           </p></div>);
         }
         else{
+
         return (
             <div className="ui success message" >
               
@@ -67,9 +78,12 @@ class AddLocation extends React.Component {
                 Adding Location was successful.
                 </div>
                 <p>You may now get your location using the route getLocation</p>
+                
           </div>
         );
+
         }
+   
     }
 }
 

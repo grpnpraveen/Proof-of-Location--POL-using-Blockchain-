@@ -13,7 +13,7 @@ class Landing extends React.Component {
                   </div>
                   <ul className="nav">
                     <li><a href="/getLocation">GetLocation</a></li>
-                    <li><a href="#">AddLocation</a></li>
+                    <li><a href="http://localhost:5000">Verify my Location</a></li>
                   </ul>
                 </div>
               </div>
@@ -23,7 +23,7 @@ class Landing extends React.Component {
                 <div className="container slidercontent">
                   <h1 className="hero">Blockchain Based Location Proving Application</h1>
                   <h2 className="hero">Proving.Location.Easy</h2>
-                  <div className="call"><a href="#"><span>Documentation</span></a></div>
+                  <div className="call"><a target="blank" href="https://www.overleaf.com/project/626173c10a6426435430d2fa"><span>Documentation</span></a></div>
                 </div>
               </div>
             </div>

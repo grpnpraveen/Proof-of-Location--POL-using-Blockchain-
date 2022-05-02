@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>A Map of Information</title>
+    
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    
+    <script>
+
+      function initialize() {
+        
+        var myLatlng = new google.maps.LatLng({{lat}},{{lng}})
+        var mapOptions = {
+          zoom: 4,
+          center: myLatlng,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+
+        i = 0;
+        var markers = [];
+      
+
+            var newLatlng = new google.maps.LatLng({{lat}},{{lng}});
+            var marker = new google.maps.Marker({
+                position: newLatlng,
+                map: map,
+                title: {{lng}}
+            });
+            markers.push(marker);
+
+  
+            //New var
+            var markerCluster = new MarkerClusterer(map, markers, options);
+      }
+    </script>
+    <style>
+      element.style{
+        display: none;
+      }
+    </style>
+  </head>
+  
+  <body onload="initialize()">
+  <div id="map_canvas" style="height: 400px;display:{{what}}" ></div>
+</body>
+</html>

@@ -28,9 +28,9 @@ try:
             js=json.loads(data.decode('ASCII'))
             print(js["lat"])
             print(js["lon"])
-            if(distance(LAT,LON,int(js["lat"]),int(js["lon"])) <= 100):
+            if(distance(LAT,LON,int(js["lat"]),int(js["lon"])) <= 10000):
                 print("SUCCESS")
-                webbrowser.open('https://f47a-103-139-191-218.ngrok.io/open/'+js["lat"]+"/"+js["lon"], new=2)
+                webbrowser.open('https://31ae-103-139-191-218.ngrok.io/open/'+js["lat"]+"/"+js["lon"], new=2)
             client.send(data)
 except:	
     print("Closing socket")	
