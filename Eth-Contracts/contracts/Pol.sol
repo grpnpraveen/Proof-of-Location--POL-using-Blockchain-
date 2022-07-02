@@ -19,7 +19,7 @@ contract POL{
         tempLT.lng=Lng;
         tempLT.timeStamp=block.timestamp;
         userLocationData[msg.sender]=tempLT;
-    } 
+    }
 
     function getLocation(address user) public view returns (LocationAndTime memory) {
         return userLocationData[user];
